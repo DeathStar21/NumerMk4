@@ -21,14 +21,17 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 18
-    - name: installmodules
+
+        
+    - name: installFront
       run: |
         cd BackEnd
         npm install
-    - name: installmodules
+    - name: installBack
       run: |
         cd my-app
         npm install
+   
     - name: testfront
       run: |
         cd my-app
@@ -37,5 +40,5 @@ jobs:
       run: |
         cd BackEnd
         npm test
-    - name: test docker
+    - name: testdocker
       run: docker-compose build
