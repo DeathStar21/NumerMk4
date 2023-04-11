@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  database:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: QlerOrder66
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
+    ports:
+      - "3307:3306"
+
+  server:
+    build: ./BackEnd
+    ports:
+      - "7258:7258"
+    depends_on:
+      - database
+    environment:
+      DB_HOST: database
+      DB_USER: root
+      DB_PASSWORD: QlerOrder66
+      DB_NAME: numer
+      DB_PORT: 3306
+  
+  front:
+    build: ./my-app
+    ports:
+      - "4000:3000"
+    depends_on:
+      - server

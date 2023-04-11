@@ -1,0 +1,145 @@
+{
+   "definition": {
+      "openapi": "3.0.0",
+      "servers": [
+         {
+            "description": "SwaggerHub API Auto Mocking",
+            "url": "http://localhost:7258/"
+         }
+      ],
+      "info": {
+         "description": "This is a Numerical Method API",
+         "version": "1.6.2",
+         "title": "Numerical Method API 2023",
+         "contact": {
+            "email": "qlergaming@gmail.com"
+         }
+      },
+      "components": {
+         "securitySchemes": {
+            "bearerAuth": {
+               "type": "http",
+               "scheme": "bearer"
+            }
+         },
+         "responses": {
+            "UnauthorizedError": {
+               "description": "Authentication information is missing or invalid",
+               "headers": {
+                  "WWW_Authenticate": {
+                     "schema": {
+                        "type": "string"
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "tags": [
+         {
+            "name": "admin",
+            "description": "Operations available to regular admins"
+         },
+         {
+            "name": "developers",
+            "description": "Operations available to regular developers"
+         }
+      ],
+      "paths": {
+         "/createtoken/{admin}": {
+            "get": {
+               "tags": [
+                  "admin"
+               ],
+               "description": "Create Token\n",
+               "parameters": [
+                  {
+                     "name": "admin",
+                     "in": "path",
+                     "type": "string"
+                  }
+               ],
+               "responses": {
+                  "200": {
+                     "description": "OK"
+                  }
+               }
+            }
+         },
+         "/bisection-doc": {
+            "get": {
+               "tags": [
+                  "developers"
+               ],
+               "security": [
+                  {
+                     "bearerAuth": []
+                  }
+               ],
+               "summary": "searches bisection",
+               "description": "searches bisection\n",
+               "responses": {
+                  "200": {
+                     "description": "search results matching criteria"
+                  },
+                  "400": {
+                     "description": "bad input parameter"
+                  }
+               }
+            }
+         },
+         "/falseposition-doc": {
+            "get": {
+               "tags": [
+                  "developers"
+               ],
+               "security": [
+                  {
+                     "bearerAuth": []
+                  }
+               ],
+               "summary": "searches falseposition",
+               "description": "searches falseposition\n",
+               "responses": {
+                  "200": {
+                     "description": "search results matching criteria"
+                  },
+                  "400": {
+                     "description": "bad input parameter"
+                  }
+               }
+            }
+         },
+         "/linearregression-doc": {
+            "get": {
+               "tags": [
+                  "developers"
+               ],
+               "security": [
+                  {
+                     "bearerAuth": []
+                  }
+               ],
+               "summary": "searches linearregression",
+               "description": "searches linearregression\n",
+               "responses": {
+                  "200": {
+                     "description": "search results matching criteria"
+                  },
+                  "400": {
+                     "description": "bad input parameter"
+                  }
+               }
+            }
+         }
+      },
+      "securityDefinitions": {
+         "api_key": {
+            "type": "apiKey",
+            "name": "api_key",
+            "in": "header"
+         }
+      }
+   },
+   "apis": []
+}
