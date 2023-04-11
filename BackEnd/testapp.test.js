@@ -22,7 +22,7 @@ describe('GET /createToken/:admin', () => {
   });
 });
 
-test('Querry', async()=>{
+test('Querry', async () => {
   const response = await request(app).get('/bisection');
   expect(response.statusCode).toBe(200);
   expect(response.text).toBe('[{\"idBisection\":1,\"Equation\":\"x-13^(1/4)\",\"XL\":1.5,\"XR\":2},{\"idBisection\":2,\"Equation\":\"x^3-x-2\",\"XL\":1,\"XR\":2},{\"idBisection\":3,\"Equation\":\"x^4-x-10\",\"XL\":2,\"XR\":5},{\"idBisection\":4,\"Equation\":\"y^4+1+2\",\"XL\":4,\"XR\":5}]');
